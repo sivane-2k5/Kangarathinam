@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kanagarathinam K – GIS &amp; Spatial Analytics Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f8f7; --card:#ffffff; --ink:#13231f; --muted:#52645f; --line:#d9e3e0;
+  --accent:#0d6b5b; --accent-ink:#ffffff; --water:#2a6f97;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1917; --card:#14231f; --ink:#e8f1ee; --muted:#9db2ac; --line:#24382f;
+    --accent:#4fc3a8; --accent-ink:#0e1917; --water:#7fb6d9;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1917; --card:#14231f; --ink:#e8f1ee; --muted:#9db2ac; --line:#24382f;
+  --accent:#4fc3a8; --accent-ink:#0e1917; --water:#7fb6d9;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'Public Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--water);outline-offset:3px;border-radius:4px}
+.wrap{max-width:900px;margin:0 auto;padding:0 24px}
+
+/* nav */
+nav{border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:22px;flex-wrap:wrap;padding-top:16px;padding-bottom:16px;font-size:14px;font-weight:500}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--accent)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:72px 0 64px;border-bottom:1px solid var(--line)}
+.contours{position:absolute;right:-120px;top:-40px;width:520px;height:520px;opacity:.55;pointer-events:none}
+.contours ellipse{fill:none;stroke:var(--accent);stroke-width:1.2;opacity:.35}
+.hero .wrap{position:relative}
+h1{font-size:clamp(34px,6vw,52px);line-height:1.1;font-weight:700;letter-spacing:-.02em}
+.role{margin-top:12px;font-size:clamp(17px,2.4vw,20px);color:var(--water);font-weight:500}
+.lede{margin-top:22px;max-width:62ch;color:var(--muted);font-size:17px}
+.actions{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:11px 20px;border-radius:6px;font-weight:600;font-size:15px;text-decoration:none;border:1.5px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{color:var(--accent);background:transparent}
+.btn:hover{filter:brightness(1.08)}
+
+.mail{margin-top:16px;font-size:15px;color:var(--muted);user-select:all}
+.copy{margin-left:8px;padding:3px 12px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--accent);font:inherit;font-size:13px;font-weight:600;cursor:pointer;user-select:none}
+.copy:focus-visible{outline:3px solid var(--water);outline-offset:2px}
+
+/* sections */
+section{padding:60px 0 8px}
+h2{font-size:26px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
+.sub{color:var(--muted);margin-bottom:28px}
+
+/* project rows */
+.row{display:grid;grid-template-columns:200px 1fr;gap:28px;padding:22px 0;border-top:1px solid var(--line)}
+.row:last-child{border-bottom:1px solid var(--line)}
+.metric{font-size:26px;font-weight:700;line-height:1.15;color:var(--accent);letter-spacing:-.01em}
+.metric small{display:block;margin-top:4px;font-size:13px;font-weight:500;color:var(--muted);letter-spacing:0}
+.row h3{font-size:18px;font-weight:600;line-height:1.35}
+.row p{margin-top:6px;color:var(--muted);font-size:15.5px}
+.tools{margin-top:10px;font-size:13.5px;color:var(--water);font-weight:500}
+
+/* experience */
+.item{padding:18px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:200px 1fr;gap:28px}
+.item:last-child{border-bottom:1px solid var(--line)}
+.when{font-size:14px;color:var(--muted)}
+.item h3{font-size:17px;font-weight:600}
+.org{color:var(--water);font-weight:500;font-size:15px}
+.item p{margin-top:6px;color:var(--muted);font-size:15.5px}
+
+/* skills */
+.skills{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.skills h3{font-size:16px;margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--card);border:1px solid var(--line);padding:5px 12px;border-radius:999px;font-size:14px}
+
+footer{margin-top:64px;padding:36px 0 44px;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:680px){
+  .row,.item{grid-template-columns:1fr;gap:6px}
+  .skills{grid-template-columns:1fr}
+  .hero{padding:52px 0 44px}
+  .contours{opacity:.35;right:-220px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a href="#projects">GIS projects</a>
+  <a href="#research">Research</a>
+  <a href="#experience">Experience</a>
+  <a href="#skills">Skills</a>
+  <a href="#education">Education</a>
+</div></nav>
+
+<header class="hero">
+  <svg class="contours" viewBox="0 0 520 520" aria-hidden="true">
+    <g transform="translate(260 260) rotate(-18)">
+      <ellipse rx="240" ry="170"/><ellipse rx="205" ry="140"/><ellipse rx="170" ry="112"/>
+      <ellipse rx="136" ry="86"/><ellipse rx="102" ry="62"/><ellipse rx="68" ry="40"/><ellipse rx="34" ry="19"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <h1>Kanagarathinam K</h1>
+    <p class="role">Civil Engineer specializing in GIS, Remote Sensing &amp; Spatial Analytics</p>
+    <p class="lede">Civil engineering graduate who turns satellite imagery, terrain models and street-level data into practical answers on flooding, land use, accessibility and urban growth. Also experienced in environmental lab research on water quality and pollutants.</p>
+    <div class="actions">
+      <a class="btn primary" href="https://arcg.is/1uGjWr3" target="_blank" rel="noopener">View interactive GIS portfolio</a>
+      <a class="btn ghost" href="mailto:kanagarathinaam@gmail.com" target="_blank" rel="noopener">Email me</a>
+    </div>
+    <p class="mail">kanagarathinaam@gmail.com <button class="copy" id="copyMail" type="button">Copy</button></p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section id="projects">
+  <h2>GIS projects</h2>
+  <p class="sub">Selected spatial analysis work. Full interactive maps are in the <a href="https://arcg.is/1uGjWr3" target="_blank" rel="noopener">ArcGIS portfolio</a>.</p>
+
+  <div class="row">
+    <div class="metric">546.37 km<small>of roads exposed to flooding</small></div>
+    <div><h3>Urban flood susceptibility mapping</h3>
+    <p>DEM-based flood risk analysis that identifies which roads across the study area are most exposed.</p></div>
+  </div>
+  <div class="row">
+    <div class="metric">95.89%<small>population coverage</small></div>
+    <div><h3>Smart urban evacuation &amp; accessibility</h3>
+    <p>Network-based accessibility modeling across 635 hospitals to measure how much of the population can reach care.</p></div>
+  </div>
+  <div class="row">
+    <div class="metric">99.95%<small>classification accuracy</small></div>
+    <div><h3>Urban growth &amp; change detection</h3>
+    <p>Predictive spatial modeling of urban expansion using Google Earth Engine.</p></div>
+  </div>
+  <div class="row">
+    <div class="metric">3.4%–59.8%<small>green view index range</small></div>
+    <div><h3>Urban green visibility around metro stations</h3>
+    <p>HSV color segmentation of street-level imagery to quantify vegetation visibility at 10 Chennai Metro stations.</p></div>
+  </div>
+  <div class="row">
+    <div class="metric">Sentinel-2<small>NDVI + LULC</small></div>
+    <div><h3>Healthy agricultural zone mapping</h3>
+    <p>Satellite imagery analysis using NDVI and land use classification to delineate viable agricultural zones.</p></div>
+  </div>
+</section>
+
+<section id="research">
+  <h2>Research projects</h2>
+  <p class="sub">GIS and environmental engineering research from 2024.</p>
+
+  <div class="row">
+    <div class="metric">24.19 km²<small>suitable land, 19.5 km² highly suitable</small></div>
+    <div><h3>Site selection for real estate using GIS</h3>
+    <p>Weighted overlay and buffer analysis in ArcGIS using roads, schools, water bodies and dump yards, combined with LULC classification and barren land extraction. Results validated through field surveys.</p>
+    <div class="tools">Jul – Dec 2024</div></div>
+  </div>
+  <div class="row">
+    <div class="metric">2,250 mg/L<small>peak bicarbonate alkalinity</small></div>
+    <div><h3>CO₂ mineralization in RO reject</h3>
+    <p>Synthesized Mg/Ca-based carbon foams and eggshell powder. Mg + glucose foam reached over 3x the alkalinity of DDW, with XRD confirming CaO to CaCO₃ conversion.</p>
+    <div class="tools">Jul – Dec 2024</div></div>
+  </div>
+  <div class="row">
+    <div class="metric">98.89%<small>phosphate removal</small></div>
+    <div><h3>Phosphate adsorption using carbon-based foam</h3>
+    <p>Developed and optimized Mg/Ca-based adsorbents by tuning pH, dosage and contact time. Characterized with UV-Vis, XRD, FTIR, SEM, BET and zeta potential.</p>
+    <div class="tools">Jul – Dec 2024</div></div>
+  </div>
+  <div class="row">
+    <div class="metric">72 hours<small>dark vs. UV exposure</small></div>
+    <div><h3>Organic pollutants from artificial turf</h3>
+    <p>Studied DOM release using UV absorbance, EEM fluorescence and PARAFAC analysis. Identified humic acid, fulvic acid and protein-like components, with UV accelerating DOM transformation.</p>
+    <div class="tools">Dec 2024 – May 2025</div></div>
+  </div>
+</section>
+
+<section id="experience">
+  <h2>Training &amp; experience</h2>
+  <p class="sub">&nbsp;</p>
+
+  <div class="item">
+    <div class="when">Jan – Jun 2026</div>
+    <div><h3>GIS technical training</h3><div class="org">Avakaza Geospatial Program</div>
+    <p>Ten-module, hands-on program covering georeferencing, topology, cartographic design, remote sensing, Google Earth Engine, Python automation, PostGIS, spatial SQL, dashboards, network analysis, and agriculture and forest remote sensing.</p></div>
+  </div>
+  <div class="item">
+    <div class="when">Sep – Oct 2023</div>
+    <div><h3>Intern</h3><div class="org">Vee Arr Associates, Madurai</div>
+    <p>Supervised borewell installation and geotechnical operations, and assisted with planning and execution of a residential low-rise structure, from site layout to foundation and floor-level development.</p></div>
+  </div>
+  <div class="item">
+    <div class="when">Aug – Sep 2023</div>
+    <div><h3>Intern</h3><div class="org">Chennai Metro Rail Limited, Chennai</div>
+    <p>Four weeks on Phase 2 Corridor 3: surveying with total station and theodolite, bar bending schedule review, bentonite testing, reinforcement works, site visits, depot inspections and daily documentation.</p></div>
+  </div>
+  <div class="item">
+    <div class="when">Dec 2021 – Apr 2022</div>
+    <div><h3>Intern</h3><div class="org">Maxelerator Foundation, Madurai</div>
+    <p>Python foundations with Matplotlib visualization, plus core machine learning concepts: supervised, unsupervised and reinforcement learning, classification, regression, clustering, and an introduction to deep learning.</p></div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <p class="sub">&nbsp;</p>
+  <div class="skills">
+    <div>
+      <h3>Technical</h3>
+      <div class="chips">
+        <span class="chip">Spatial analysis</span><span class="chip">Remote sensing</span><span class="chip">Network analysis</span>
+        <span class="chip">Geospatial machine learning</span><span class="chip">Predictive spatial modeling</span>
+        <span class="chip">Change detection</span><span class="chip">Web GIS development</span>
+        <span class="chip">Environmental data analysis</span><span class="chip">DEM &amp; terrain analysis</span><span class="chip">LULC classification</span>
+      </div>
+    </div>
+    <div>
+      <h3>Software</h3>
+      <div class="chips">
+        <span class="chip">ArcGIS Pro</span><span class="chip">ArcGIS Online</span><span class="chip">QGIS</span><span class="chip">Google Earth Engine</span>
+        <span class="chip">Python (GeoPandas, Rasterio, OSMnx, Folium, Scikit-learn)</span>
+        <span class="chip">PostGIS</span><span class="chip">PostgreSQL</span>
+        <span class="chip">AutoCAD</span><span class="chip">Revit</span><span class="chip">STAAD Pro</span>
+        <span class="chip">EPA PMF 5.0</span><span class="chip">OriginPro</span><span class="chip">Microsoft Excel</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <p class="sub">&nbsp;</p>
+  <div class="item">
+    <div class="when">Aug 2026</div>
+    <div><h3>Master in Geographic Information Science and Cartography</h3><div class="org">San Jose State University, CA, USA</div></div>
+  </div>
+  <div class="item">
+    <div class="when">2021 – 2025</div>
+    <div><h3>Bachelor of Technology, Civil Engineering</h3><div class="org">Vellore Institute of Technology</div>
+    <p>Final grade: 8.27</p></div>
+  </div>
+</section>
+
+</main>
+
+<footer><div class="wrap">
+  <span>Kanagarathinam K</span>
+  <span><a href="mailto:kanagarathinaam@gmail.com">kanagarathinaam@gmail.com</a> &nbsp;|&nbsp; <a href="https://arcg.is/1uGjWr3" target="_blank" rel="noopener">ArcGIS portfolio</a></span>
+</div></footer>
+
+<script>
+(function(){
+  var b=document.getElementById('copyMail'),addr='kanagarathinaam@gmail.com';
+  if(!b)return;
+  function done(ok){b.textContent=ok?'Copied':'Select and copy';setTimeout(function(){b.textContent='Copy'},2000)}
+  function fallback(){
+    try{
+      var t=document.createElement('textarea');t.value=addr;t.style.position='fixed';t.style.opacity='0';
+      document.body.appendChild(t);t.select();var ok=document.execCommand('copy');document.body.removeChild(t);done(ok);
+    }catch(e){done(false)}
+  }
+  b.addEventListener('click',function(){
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(addr).then(function(){done(true)},fallback);
+    }else{fallback()}
+  });
+})();
+</script>
+</body>
+</html>
